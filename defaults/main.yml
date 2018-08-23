@@ -1,0 +1,92 @@
+---
+# defaults freebsd-redis
+
+bsd_redis_enable: false
+bsd_redis_debug: false
+bsd_redis_conf_backup: yes
+
+# install method
+freebsd_install_method: packages
+freebsd_use_packages: "yes"
+
+# redis
+bsd_redis_service: redis
+bsd_redis_packages:
+  - "databases/redis"
+bsd_redis_packages_extra: []
+
+# redis.conf
+bsd_redis_conf_path: "/usr/local/etc"
+bsd_redis_conf_file: "{{ bsd_redis_conf_path }}/redis.conf"
+bsd_redis_conf_owner: root
+bsd_redis_conf_group: redis
+bsd_redis_conf_mode: 0640
+bsd_redis_bind_address: 127.0.0.1
+bsd_redis_protected_mode: "yes"
+bsd_redis_port: 6379
+bsd_redis_tcp_backlog: 511
+bsd_redis_timeout: 0
+bsd_redis_tcp_keepalive: 300
+bsd_redis_daemonize: "yes"
+bsd_redis_supervised: "no"
+bsd_redis_pidfile: /var/run/redis/redis.pid
+bsd_redis_loglevel: notice
+bsd_redis_logfile: /var/log/redis/redis.log
+bsd_redis_databases: 16
+bsd_redis_always_show_logo: "yes"
+bsd_redis_save:
+  - 900 1
+  - 300 10
+  - 60 10000
+bsd_redis_stop_writes_on_bgsave_error: "yes"
+bsd_redis_rdbcompression: "yes"
+bsd_redis_rdbchecksum: "yes"
+bsd_redis_dbfilename: dump.rdb
+bsd_redis_dir: /var/db/redis
+bsd_redis_slave_serve_stale_data: "yes"
+bsd_redis_slave_read_only: "yes"
+bsd_redis_repl_diskless_sync: "no"
+bsd_redis_repl_diskless_sync_delay: 5
+bsd_redis_repl_disable_tcp_nodelay: "no"
+bsd_redis_slave_priority: 100
+bsd_redis_lazyfree_lazy_eviction: "no"
+bsd_redis_lazyfree_lazy_expire: "no"
+bsd_redis_lazyfree_lazy_server_del: "no"
+bsd_redis_slave_lazy_flush: "no"
+bsd_redis_appendonly: "no"
+bsd_redis_appendfilename: appendonly.aof
+bsd_redis_appendfsync: "everysec"
+bsd_redis_no_appendfsync_on_rewrite: "no"
+bsd_redis_auto_aof_rewrite_percentage: 100
+bsd_redis_auto_aof_rewrite_min_size: 64mb
+bsd_redis_aof_load_truncated: "yes"
+bsd_redis_aof_use_rdb_preamble: "no"
+bsd_redis_lua_time_limit: 5000
+bsd_redis_slowlog_log_slower_than: 10000
+bsd_redis_slowlog_max_len: 128
+bsd_redis_latency_monitor_threshold: 0
+bsd_redis_notify_keyspace_events: ""
+bsd_redis_hash_max_ziplist_entries: 512
+bsd_redis_hash_max_ziplist_value: 64
+bsd_redis_list_max_ziplist_size: _2
+bsd_redis_list_compress_depth: 0
+bsd_redis_set_max_intset_entries: 512
+bsd_redis_zset_max_ziplist_entries: 128
+bsd_redis_zset_max_ziplist_value: 64
+bsd_redis_hll_sparse_max_bytes: 3000
+bsd_redis_activerehashing: "yes"
+bsd_redis_client_output_buffer_limit:
+  - normal 0 0 0
+  - slave 256mb 64mb 60
+  - pubsub 32mb 8mb 60
+bsd_redis_hz: 10
+bsd_redis_aof_rewrite_incremental_fsync: "yes"
+bsd_redis_requirepass: ""
+bsd_redis_masterauth: ""
+bsd_redis_rename_command: []
+bsd_redis_includes: []
+bsd_redis_db: []
+bsd_redis_user: []
+
+# EOF
+...

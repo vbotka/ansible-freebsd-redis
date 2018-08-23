@@ -1,0 +1,39 @@
+---
+# handlers freebsd-redis
+
+- name: enable and start redis
+  service:
+    name: "{{ bsd_redis_service }}"
+    state: started
+    enabled: yes
+
+- name: disable and stop redis
+  service:
+    name: "{{ bsd_redis_service }}"
+    state: stopped
+    enabled: no
+
+- name: start redis
+  service:
+    name: "{{ bsd_redis_service }}"
+    state: started
+
+- name: stop redis
+  service:
+    name: "{{ bsd_redis_service }}"
+    state: stopped
+
+- name: restart redis
+  service:
+    name: "{{ bsd_redis_service }}"
+    state: restarted
+  when: bsd_redis_enable
+
+- name: reload redis
+  service:
+    name: "{{ bsd_redis_service }}"
+    state: reloaded
+  when: bsd_redis_enable
+
+# EOF
+...

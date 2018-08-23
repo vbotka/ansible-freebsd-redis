@@ -1,0 +1,76 @@
+# {{ ansible_managed }}
+
+bind {{ bsd_redis_bind_address }}
+protected-mode {{ bsd_redis_protected_mode }}
+port {{ bsd_redis_port }}
+tcp-backlog {{ bsd_redis_tcp_backlog }}
+timeout {{ bsd_redis_timeout }}
+tcp-keepalive {{ bsd_redis_tcp_keepalive }}
+daemonize {{ bsd_redis_daemonize }}
+supervised {{ bsd_redis_supervised }}
+pidfile {{ bsd_redis_pidfile }}
+loglevel {{ bsd_redis_loglevel }}
+logfile {{ bsd_redis_logfile }}
+databases {{ bsd_redis_databases }}
+always-show-logo {{ bsd_redis_always_show_logo }}
+{% for item in bsd_redis_save %}
+save {{ item }}
+{% endfor %}
+stop-writes-on-bgsave-error {{ bsd_redis_stop_writes_on_bgsave_error }}
+rdbcompression {{ bsd_redis_rdbcompression }}
+rdbchecksum {{ bsd_redis_rdbchecksum }}
+dbfilename {{ bsd_redis_dbfilename }}
+dir {{ bsd_redis_dir }}
+slave-serve-stale-data {{ bsd_redis_slave_serve_stale_data }}
+slave-read-only {{ bsd_redis_slave_read_only }}
+repl-diskless-sync {{ bsd_redis_repl_diskless_sync }}
+repl-diskless-sync-delay {{ bsd_redis_repl_diskless_sync_delay }}
+repl-disable-tcp-nodelay {{ bsd_redis_repl_disable_tcp_nodelay }}
+slave-priority {{ bsd_redis_slave_priority }}
+lazyfree-lazy-eviction {{ bsd_redis_lazyfree_lazy_eviction }}
+lazyfree-lazy-expire {{ bsd_redis_lazyfree_lazy_expire }}
+lazyfree-lazy-server-del {{ bsd_redis_lazyfree_lazy_server_del }}
+slave-lazy-flush {{ bsd_redis_slave_lazy_flush }}
+appendonly {{ bsd_redis_appendonly }}
+appendfilename "{{ bsd_redis_appendfilename }}"
+appendfsync {{ bsd_redis_appendfsync }}
+no-appendfsync-on-rewrite {{ bsd_redis_no_appendfsync_on_rewrite }}
+auto-aof-rewrite-percentage {{ bsd_redis_auto_aof_rewrite_percentage }}
+auto-aof-rewrite-min-size {{ bsd_redis_auto_aof_rewrite_min_size }}
+aof-load-truncated {{ bsd_redis_aof_load_truncated }}
+aof-use-rdb-preamble {{ bsd_redis_aof_use_rdb_preamble }}
+lua-time-limit {{ bsd_redis_lua_time_limit }}
+slowlog-log-slower-than {{ bsd_redis_slowlog_log_slower_than }}
+slowlog-max-len {{ bsd_redis_slowlog_max_len }}
+latency-monitor-threshold {{ bsd_redis_latency_monitor_threshold }}
+{% if bsd_redis_notify_keyspace_events %}
+notify-keyspace-events {{ bsd_redis_notify_keyspace_events }}
+{% endif %}
+hash-max-ziplist-entries {{ bsd_redis_hash_max_ziplist_entries }}
+hash-max-ziplist-value {{ bsd_redis_hash_max_ziplist_value }}
+list-max-ziplist-size {{ bsd_redis_list_max_ziplist_size }}
+list-compress-depth {{ bsd_redis_list_compress_depth }}
+set-max-intset-entries {{ bsd_redis_set_max_intset_entries }}
+zset-max-ziplist-entries {{ bsd_redis_zset_max_ziplist_entries }}
+zset-max-ziplist-value {{ bsd_redis_zset_max_ziplist_value }}
+hll-sparse-max-bytes {{ bsd_redis_hll_sparse_max_bytes }}
+activerehashing {{ bsd_redis_activerehashing }}
+{% for item in bsd_redis_client_output_buffer_limit %}
+client-output-buffer-limit {{ item }}
+{% endfor %}
+hz {{ bsd_redis_hz }}
+aof-rewrite-incremental-fsync {{ bsd_redis_aof_rewrite_incremental_fsync }}
+{% if bsd_redis_requirepass %}
+requirepass {{ bsd_redis_requirepass }}
+{% endif %}
+{% if bsd_redis_masterauth %}
+requirepass {{ bsd_redis_masterauth }}
+{% endif %}
+{% for item in bsd_redis_rename_command %}
+rename-command {{ item.command }} "{{ item.hash }}"
+{% endfor %}
+{% for include in bsd_redis_includes %}
+include {{ include }}
+{% endfor %}
+
+# EOF

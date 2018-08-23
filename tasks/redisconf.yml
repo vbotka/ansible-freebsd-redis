@@ -1,0 +1,14 @@
+---
+
+- name: "redisconf: Configure {{ bsd_redis_conf_file }}"
+  template:
+    src: redis.conf.j2
+    dest: "{{ bsd_redis_conf_file }}"
+    owner: "{{ bsd_redis_conf_owner }}"
+    group: "{{ bsd_redis_conf_group }}"
+    mode: "{{ bsd_redis_conf_mode }}"
+    backup: "{{ bsd_redis_conf_backup }}"
+  notify: reload redis
+
+# EOF
+...
