@@ -2,8 +2,7 @@
 
 - name: "packages: Install Redis packages."
   pkgng:
-    name: "{{ item }}"
-  loop: "{{ bsd_redis_packages }}"
+    name: "{{ bsd_redis_packages }}"
   when: freebsd_install_method == "packages"
 
 - name: "packages: Install Redis ports."
@@ -15,8 +14,7 @@
 
 - name: "packages: Install Redis extra packages."
   pkgng:
-    name: "{{ item }}"
-  loop: "{{ bsd_redis_packages_extra }}"
+    name: "{{ bsd_redis_packages_extra }}"
   when: freebsd_install_method == "packages"
 
 - name: "packages: Install Redis extra ports."

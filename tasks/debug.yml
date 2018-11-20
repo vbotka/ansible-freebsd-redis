@@ -18,9 +18,9 @@
          bsd_redis_port [ {{ bsd_redis_port }} ]
          bsd_redis_conf_backup [ {{ bsd_redis_conf_backup }} ]
          bsd_redis_packages
-         {{ bsd_redis_packages | to_nice_yaml}}
+         {{ bsd_redis_packages | to_nice_yaml }}
          bsd_redis_packages_extra
-         {{ bsd_redis_packages_extra | to_nice_yaml}}
+         {{ bsd_redis_packages_extra | to_nice_yaml }}
 
          freebsd_install_method [ {{ freebsd_install_method }} ]
          freebsd_use_packages [ {{ freebsd_use_packages | default('absent') }} ]
