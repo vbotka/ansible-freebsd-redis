@@ -7,7 +7,7 @@
     line: "redis_enable=\"YES\""
     backup: "{{ bsd_redis_conf_backup }}"
   notify: enable and start redis
-  when: bsd_redis_enable
+  when: bsd_redis_enable|bool
 
 - name: "rcconf: Disable and stop Redis."
   lineinfile:
@@ -16,14 +16,14 @@
     line: "redis_enable=\"NO\""
     backup: "{{ bsd_redis_conf_backup }}"
   notify: disable and stop redis
-  when: not bsd_redis_enable
+  when: not bsd_redis_enable|bool
 
 - meta: flush_handlers
 
 - name: "rcconf: Wait for Redis service at port {{ bsd_redis_port }}."
   wait_for:
     port: "{{ bsd_redis_port }}"
-  when: bsd_redis_enable
+  when: bsd_redis_enable|bool
 
 # EOF
 ...

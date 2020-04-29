@@ -3,7 +3,7 @@
 
 bsd_redis_enable: false
 bsd_redis_debug: false
-bsd_redis_conf_backup: yes
+bsd_redis_conf_backup: true
 
 # install method
 freebsd_install_method: packages
