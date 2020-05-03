@@ -4,6 +4,8 @@
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/freebsd_redis/) FreeBSD. Install and configure Redis.
 
+Please feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-freebsd-redis/issues). Contributions are welcome.
+
 
 ## Requirements
 
