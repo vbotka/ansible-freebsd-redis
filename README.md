@@ -1,10 +1,12 @@
 # freebsd_redis
 
-[![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-redis.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-redis)
+[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/freebsd_redis)[![Build Status](https://travis-ci.org/vbotka/ansible-freebsd-redis.svg?branch=master)](https://travis-ci.org/vbotka/ansible-freebsd-redis)
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/freebsd_redis/) FreeBSD. Install and configure Redis.
 
-Please feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-freebsd-redis/issues). Contributions are welcome.
+Feel free to [share your feedback and report issues](https://github.com/vbotka/ansible-freebsd-redis/issues).
+
+[Contributions are welcome](https://github.com/firstcontributions/first-contributions).
 
 
 ## Requirements
