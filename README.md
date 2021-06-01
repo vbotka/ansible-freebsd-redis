@@ -11,7 +11,9 @@ Feel free to [share your feedback and report issues](https://github.com/vbotka/a
 
 ## Requirements
 
-None.
+### Collections
+
+- community.general
 
 
 ## Variables
@@ -27,19 +29,20 @@ Review defaults and examples in vars.
 shell> ansible dbserver -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod freebsd -s /bin/sh'
 ```
 
-2) Install role.
+2) Install the role and collections
 
 ```
-shell> ansible-galaxy install vbotka.freebsd_redis
+shell> ansible-galaxy role install vbotka.freebsd_redis
+shell> ansible-galaxy collection install community.general
 ```
 
-3) Fit variables.
+3) Fit variables, e.g. in vars/main.yml
 
 ```
 shell> editor vbotka.freebsd_redis/vars/main.yml
 ```
 
-4) Create playbook and inventory.
+4) Create playbook and inventory
 
 ```
 shell> cat redis.yml
@@ -57,24 +60,24 @@ shell> cat hosts
 [dbserver:vars]
 ansible_connection=ssh
 ansible_user=freebsd
-ansible_python_interpreter=/usr/local/bin/python3.6
+ansible_python_interpreter=/usr/local/bin/python3.7
 ansible_perl_interpreter=/usr/local/bin/perl
 ```
 
-5) Install Redis.
+5) Install Redis
 
 ```
 shell> ansible-playbook redis.yml -t bsd_redis_packages
 ```
 		
-6) Check the playbook.
+6) Check the playbook
 
 ```
-shell> ansible-playbook redis.yml -C
-
+shell> ansible-playbook redis.yml --syntax-check
+shell> ansible-playbook redis.yml --check --diff
 ```
 
-7) Configure Redis.
+7) Configure Redis
 
 ```
 shell> ansible-playbook redis.yml

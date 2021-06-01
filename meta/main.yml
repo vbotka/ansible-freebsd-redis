@@ -16,4 +16,6 @@ galaxy_info:
     - freebsd
     - redis
 dependencies: []
+collections:
+  - community.general
 ...

@@ -1,11 +1,12 @@
 ---
-# tasks freebsd-redis
+# tasks freebsd_redis
 
 - import_tasks: debug.yml
-  when: bsd_redis_debug
+  when: bsd_redis_debug|bool
   tags: [bsd_redis_debug, always]
 
 - import_tasks: packages.yml
+  when: bsd_redis_install|bool
   tags: bsd_redis_packages
 
 - import_tasks: redisconf.yml
