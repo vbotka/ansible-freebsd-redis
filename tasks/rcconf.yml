@@ -2,19 +2,19 @@
 
 - name: "rcconf: Enable and start Redis."
   lineinfile:
-    dest: "/etc/rc.conf"
-    regexp: "^redis_enable"
-    line: "redis_enable=\"YES\""
-    backup: "{{ bsd_redis_conf_backup }}"
+    dest: /etc/rc.conf
+    regexp: '^\s*redis_enable\s*=(.*)$'
+    line: 'redis_enable="YES"'
+    backup: "{{ bsd_redis_backup }}"
   notify: enable and start redis
   when: bsd_redis_enable|bool
 
 - name: "rcconf: Disable and stop Redis."
   lineinfile:
-    dest: "/etc/rc.conf"
-    regexp: "^redis_enable"
-    line: "redis_enable=\"NO\""
-    backup: "{{ bsd_redis_conf_backup }}"
+    dest: /etc/rc.conf
+    regexp: '^\s*redis_enable\s*=(.*)$'
+    line: 'redis_enable="NO"'
+    backup: "{{ bsd_redis_backup }}"
   notify: disable and stop redis
   when: not bsd_redis_enable|bool
 

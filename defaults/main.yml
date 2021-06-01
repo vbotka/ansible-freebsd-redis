@@ -1,24 +1,25 @@
 ---
-# defaults freebsd-redis
+# defaults freebsd_redis
 
+bsd_redis_install: true
 bsd_redis_enable: false
 bsd_redis_debug: false
-bsd_redis_conf_backup: true
+bsd_redis_backup: true
 
 # install method
 freebsd_install_method: packages
-freebsd_use_packages: "yes"
+freebsd_use_packages: true
 freebsd_install_retries: 10
 freebsd_install_delay: 5
 
 # redis
 bsd_redis_service: redis
 bsd_redis_packages:
-  - "databases/redis"
+  - databases/redis
 bsd_redis_packages_extra: []
 
 # redis.conf
-bsd_redis_conf_path: "/usr/local/etc"
+bsd_redis_conf_path: /usr/local/etc
 bsd_redis_conf_file: "{{ bsd_redis_conf_path }}/redis.conf"
 bsd_redis_conf_owner: root
 bsd_redis_conf_group: redis
@@ -70,7 +71,7 @@ bsd_redis_latency_monitor_threshold: 0
 bsd_redis_notify_keyspace_events: ""
 bsd_redis_hash_max_ziplist_entries: 512
 bsd_redis_hash_max_ziplist_value: 64
-bsd_redis_list_max_ziplist_size: _2
+bsd_redis_list_max_ziplist_size: -2
 bsd_redis_list_compress_depth: 0
 bsd_redis_set_max_intset_entries: 512
 bsd_redis_zset_max_ziplist_entries: 128

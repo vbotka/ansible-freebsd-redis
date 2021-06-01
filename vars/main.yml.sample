@@ -8,17 +8,17 @@
 # install method
 # freebsd_install_method: packages
 # freebsd_install_method: ports
-# freebsd_use_packages: "yes"
+# freebsd_use_packages: true
 
 # redis
 # bsd_redis_service: redis
 # bsd_redis_packages:
-#  - "databases/redis"
+#  - databases/redis
 # bsd_redis_packages_extra:
-#  - "databases/py-redis"
+#  - databases/py-redis
 
 # redis.conf
-# bsd_redis_conf_path: "/usr/local/etc"
+# bsd_redis_conf_path: /usr/local/etc
 # bsd_redis_conf_file: "{{ bsd_redis_conf_path }}/redis.conf"
 # bsd_redis_conf_owner: root
 # bsd_redis_conf_group: redis
