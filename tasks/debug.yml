@@ -28,7 +28,7 @@
          bsd_redis_packages_extra
          {{ bsd_redis_packages_extra|to_nice_yaml }}
 
-  debug:
+  ansible.builtin.debug:
     msg: "{{ msg.split('\n') }}"
 
 # EOF

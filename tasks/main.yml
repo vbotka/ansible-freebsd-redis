@@ -1,18 +1,22 @@
 ---
 # tasks freebsd_redis
 
-- import_tasks: debug.yml
+- name: Import debug.yml
+  ansible.builtin.import_tasks: debug.yml
   when: bsd_redis_debug|bool
   tags: [bsd_redis_debug, always]
 
-- import_tasks: packages.yml
+- name: Import packages.yml
+  ansible.builtin.import_tasks: packages.yml
   when: bsd_redis_install|bool
   tags: bsd_redis_packages
 
-- import_tasks: redisconf.yml
+- name: Import redisconf.yml
+  ansible.builtin.import_tasks: redisconf.yml
   tags: bsd_redis_conf
 
-- import_tasks: rcconf.yml
+- name: Import rcconf.yml
+  ansible.builtin.import_tasks: rcconf.yml
   tags: bsd_redis_rcconf
 
 # EOF

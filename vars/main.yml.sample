@@ -1,5 +1,5 @@
 ---
-# vars freebsd-redis
+# vars samples freebsd-redis
 
 # bsd_redis_enable: true
 # bsd_redis_debug: true

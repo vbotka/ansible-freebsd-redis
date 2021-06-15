@@ -18,12 +18,12 @@ Feel free to [share your feedback and report issues](https://github.com/vbotka/a
 
 ## Variables
 
-Review defaults and examples in vars.
+See defaults and examples in vars.
 
 
 ## Workflow
 
-1) Change shell to /bin/sh.
+1) Change shell to /bin/sh
 
 ```
 shell> ansible dbserver -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod freebsd -s /bin/sh'
