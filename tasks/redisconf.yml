@@ -1,7 +1,7 @@
 ---
 
 - name: "redisconf: Configure {{ bsd_redis_conf_file }}"
-  template:
+  ansible.builtin.template:
     src: redis.conf.j2
     dest: "{{ bsd_redis_conf_file }}"
     owner: "{{ bsd_redis_conf_owner }}"

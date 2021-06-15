@@ -1,7 +1,7 @@
 ---
 
 - name: "rcconf: Enable and start Redis."
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: /etc/rc.conf
     regexp: '^\s*redis_enable\s*=(.*)$'
     line: 'redis_enable="YES"'
@@ -10,7 +10,7 @@
   when: bsd_redis_enable|bool
 
 - name: "rcconf: Disable and stop Redis."
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: /etc/rc.conf
     regexp: '^\s*redis_enable\s*=(.*)$'
     line: 'redis_enable="NO"'
@@ -18,10 +18,11 @@
   notify: disable and stop redis
   when: not bsd_redis_enable|bool
 
-- meta: flush_handlers
+- name: Meta flush_handlers
+  ansible.builtin.meta: flush_handlers
 
 - name: "rcconf: Wait for Redis service at port {{ bsd_redis_port }}."
-  wait_for:
+  ansible.builtin.wait_for:
     port: "{{ bsd_redis_port }}"
   when: bsd_redis_enable|bool
 
