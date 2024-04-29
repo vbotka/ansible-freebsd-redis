@@ -1,19 +1,18 @@
 ---
-
-- name: "rcconf: Enable and start Redis."
+- name: "Rcconf: Enable and start Redis."
   ansible.builtin.lineinfile:
     dest: /etc/rc.conf
-    regexp: '^\s*redis_enable\s*=(.*)$'
-    line: 'redis_enable="YES"'
+    regexp: ^\s*redis_enable\s*=(.*)$
+    line: redis_enable="YES"
     backup: "{{ bsd_redis_backup }}"
   notify: enable and start redis
   when: bsd_redis_enable|bool
 
-- name: "rcconf: Disable and stop Redis."
+- name: "Rcconf: Disable and stop Redis."
   ansible.builtin.lineinfile:
     dest: /etc/rc.conf
-    regexp: '^\s*redis_enable\s*=(.*)$'
-    line: 'redis_enable="NO"'
+    regexp: ^\s*redis_enable\s*=(.*)$
+    line: redis_enable="NO"
     backup: "{{ bsd_redis_backup }}"
   notify: disable and stop redis
   when: not bsd_redis_enable|bool
@@ -21,10 +20,9 @@
 - name: Meta flush_handlers
   ansible.builtin.meta: flush_handlers
 
-- name: "rcconf: Wait for Redis service at port {{ bsd_redis_port }}."
+- name: "Rcconf: Wait for Redis service at port {{ bsd_redis_port }}."
   ansible.builtin.wait_for:
     port: "{{ bsd_redis_port }}"
   when: bsd_redis_enable|bool
 
 # EOF
-...

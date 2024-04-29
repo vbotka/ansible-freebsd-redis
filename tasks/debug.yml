@@ -1,35 +1,33 @@
 ---
-
 - name: FreeBSD Redis Debug
   vars:
     msg: |-
-         ansible_architecture [{{ ansible_architecture }}]
-         ansible_os_family [{{ ansible_os_family }}]
-         ansible_distribution [{{ ansible_distribution }}]
-         ansible_distribution_major_version [{{ ansible_distribution_major_version }}]
-         ansible_distribution_version [{{ ansible_distribution_version }}]
-         ansible_distribution_release [{{ ansible_distribution_release }}]
+      ansible_architecture [{{ ansible_architecture }}]
+      ansible_os_family [{{ ansible_os_family }}]
+      ansible_distribution [{{ ansible_distribution }}]
+      ansible_distribution_major_version [{{ ansible_distribution_major_version }}]
+      ansible_distribution_version [{{ ansible_distribution_version }}]
+      ansible_distribution_release [{{ ansible_distribution_release }}]
 
-         freebsd_install_method [{{ freebsd_install_method }}]
-         freebsd_use_packages [{{ freebsd_use_packages|default('UNDEFINED') }}]
-         freebsd_install_retries [{{ freebsd_install_retries }}]
-         freebsd_install_delay [{{ freebsd_install_delay }}]
+      freebsd_install_method [{{ freebsd_install_method }}]
+      freebsd_use_packages [{{ freebsd_use_packages | default('UNDEFINED') }}]
+      freebsd_install_retries [{{ freebsd_install_retries }}]
+      freebsd_install_delay [{{ freebsd_install_delay }}]
 
-         bsd_redis_install [{{ bsd_redis_install }}]
-         bsd_redis_backup [{{ bsd_redis_backup }}]
-         bsd_redis_enable [{{ bsd_redis_enable }}]
-         bsd_redis_service [{{ bsd_redis_service }}]
-         bsd_redis_conf_path [{{ bsd_redis_conf_path }}]
-         bsd_redis_conf_file [{{ bsd_redis_conf_file }}]
-         bsd_redis_bind_address [{{ bsd_redis_bind_address }}]
-         bsd_redis_port [{{ bsd_redis_port }}]
-         bsd_redis_packages
-         {{ bsd_redis_packages|to_nice_yaml }}
-         bsd_redis_packages_extra
-         {{ bsd_redis_packages_extra|to_nice_yaml }}
+      bsd_redis_install [{{ bsd_redis_install }}]
+      bsd_redis_backup [{{ bsd_redis_backup }}]
+      bsd_redis_enable [{{ bsd_redis_enable }}]
+      bsd_redis_service [{{ bsd_redis_service }}]
+      bsd_redis_conf_path [{{ bsd_redis_conf_path }}]
+      bsd_redis_conf_file [{{ bsd_redis_conf_file }}]
+      bsd_redis_bind_address [{{ bsd_redis_bind_address }}]
+      bsd_redis_port [{{ bsd_redis_port }}]
+      bsd_redis_packages
+      {{ bsd_redis_packages | to_nice_yaml }}
+      bsd_redis_packages_extra
+      {{ bsd_redis_packages_extra | to_nice_yaml }}
 
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
 
 # EOF
-...
