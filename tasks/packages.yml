@@ -1,15 +1,14 @@
 ---
-
-- name: "packages: Install Redis packages."
+- name: "Packages: Install Redis packages."
   community.general.pkgng:
     name: "{{ bsd_redis_packages }}"
   register: result
   retries: "{{ freebsd_install_retries }}"
   until: result is succeeded
   delay: "{{ freebsd_install_delay }}"
-  when: freebsd_install_method|lower == "packages"
+  when: freebsd_install_method | lower == "packages"
 
-- name: "packages: Install Redis ports."
+- name: "Packages: Install Redis ports."
   community.general.portinstall:
     name: "{{ item }}"
     use_packages: "{{ freebsd_use_packages }}"
@@ -18,18 +17,18 @@
   retries: "{{ freebsd_install_retries }}"
   until: result is succeeded
   delay: "{{ freebsd_install_delay }}"
-  when: freebsd_install_method|lower == "ports"
+  when: freebsd_install_method | lower == "ports"
 
-- name: "packages: Install Redis extra packages."
+- name: "Packages: Install Redis extra packages."
   community.general.pkgng:
     name: "{{ bsd_redis_packages_extra }}"
   register: result
   retries: "{{ freebsd_install_retries }}"
   until: result is succeeded
   delay: "{{ freebsd_install_delay }}"
-  when: freebsd_install_method|lower == "packages"
+  when: freebsd_install_method | lower == "packages"
 
-- name: "packages: Install Redis extra ports."
+- name: "Packages: Install Redis extra ports."
   community.general.portinstall:
     name: "{{ item }}"
     use_packages: "{{ freebsd_use_packages }}"
@@ -38,7 +37,6 @@
   retries: "{{ freebsd_install_retries }}"
   until: result is succeeded
   delay: "{{ freebsd_install_delay }}"
-  when: freebsd_install_method|lower == "ports"
+  when: freebsd_install_method | lower == "ports"
 
 # EOF
-...

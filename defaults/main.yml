@@ -12,18 +12,20 @@ freebsd_use_packages: true
 freebsd_install_retries: 10
 freebsd_install_delay: 5
 
-# redis
-bsd_redis_service: redis
 bsd_redis_packages:
   - databases/redis
 bsd_redis_packages_extra: []
+
+bsd_redis_service: redis
+# Wait for the service before the role terminates.
+bsd_redis_wait: true
 
 # redis.conf
 bsd_redis_conf_path: /usr/local/etc
 bsd_redis_conf_file: "{{ bsd_redis_conf_path }}/redis.conf"
 bsd_redis_conf_owner: root
 bsd_redis_conf_group: redis
-bsd_redis_conf_mode: 0640
+bsd_redis_conf_mode: "0640"
 bsd_redis_bind_address: 127.0.0.1
 bsd_redis_protected_mode: "yes"
 bsd_redis_port: 6379
@@ -58,7 +60,7 @@ bsd_redis_lazyfree_lazy_server_del: "no"
 bsd_redis_slave_lazy_flush: "no"
 bsd_redis_appendonly: "no"
 bsd_redis_appendfilename: appendonly.aof
-bsd_redis_appendfsync: "everysec"
+bsd_redis_appendfsync: everysec
 bsd_redis_no_appendfsync_on_rewrite: "no"
 bsd_redis_auto_aof_rewrite_percentage: 100
 bsd_redis_auto_aof_rewrite_min_size: 64mb
@@ -90,6 +92,3 @@ bsd_redis_rename_command: []
 bsd_redis_includes: []
 bsd_redis_db: []
 bsd_redis_user: []
-
-# EOF
-...

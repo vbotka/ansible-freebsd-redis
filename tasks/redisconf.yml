@@ -1,6 +1,5 @@
 ---
-
-- name: "redisconf: Configure {{ bsd_redis_conf_file }}"
+- name: "Redisconf: Configure {{ bsd_redis_conf_file }}"
   ansible.builtin.template:
     src: redis.conf.j2
     dest: "{{ bsd_redis_conf_file }}"
@@ -11,4 +10,3 @@
   notify: reload redis
 
 # EOF
-...
