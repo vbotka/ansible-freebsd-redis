@@ -3,12 +3,12 @@
 
 - name: Import debug.yml
   ansible.builtin.import_tasks: debug.yml
-  when: bsd_redis_debug|bool
+  when: bsd_redis_debug | bool
   tags: bsd_redis_debug
 
 - name: Import packages.yml
   ansible.builtin.import_tasks: packages.yml
-  when: bsd_redis_install|bool
+  when: bsd_redis_install | bool
   tags: bsd_redis_packages
 
 - name: Import redisconf.yml

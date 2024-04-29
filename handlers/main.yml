@@ -2,37 +2,43 @@
 # handlers freebsd_redis
 
 - name: Enable and start redis
+  listen: enable and start redis
   ansible.builtin.service:
     name: "{{ bsd_redis_service }}"
     state: started
     enabled: true
 
 - name: Disable and stop redis
+  listen: disable and stop redis
   ansible.builtin.service:
     name: "{{ bsd_redis_service }}"
     state: stopped
     enabled: false
 
 - name: Start redis
+  listen: start redis
   ansible.builtin.service:
     name: "{{ bsd_redis_service }}"
     state: started
 
 - name: Stop redis
+  listen: stop redis
   ansible.builtin.service:
     name: "{{ bsd_redis_service }}"
     state: stopped
 
 - name: Restart redis
+  listen: restart redis
   ansible.builtin.service:
     name: "{{ bsd_redis_service }}"
     state: restarted
-  when: bsd_redis_enable
+  when: bsd_redis_enable | bool
 
 - name: Reload redis
+  listen: reload redis
   ansible.builtin.service:
     name: "{{ bsd_redis_service }}"
     state: reloaded
-  when: bsd_redis_enable
+  when: bsd_redis_enable | bool
 
 # EOF

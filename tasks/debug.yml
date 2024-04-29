@@ -1,5 +1,5 @@
 ---
-- name: FreeBSD Redis Debug
+- name: "FreeBSD Redis Debug bsd_redis_debug={{ bsd_redis_debug }}"
   vars:
     msg: |-
       ansible_architecture [{{ ansible_architecture }}]

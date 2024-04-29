@@ -6,7 +6,7 @@
     line: redis_enable="YES"
     backup: "{{ bsd_redis_backup }}"
   notify: enable and start redis
-  when: bsd_redis_enable|bool
+  when: bsd_redis_enable | bool
 
 - name: "Rcconf: Disable and stop Redis."
   ansible.builtin.lineinfile:
@@ -15,7 +15,7 @@
     line: redis_enable="NO"
     backup: "{{ bsd_redis_backup }}"
   notify: disable and stop redis
-  when: not bsd_redis_enable|bool
+  when: not bsd_redis_enable | bool
 
 - name: Meta flush_handlers
   ansible.builtin.meta: flush_handlers
@@ -23,6 +23,6 @@
 - name: "Rcconf: Wait for Redis service at port {{ bsd_redis_port }}."
   ansible.builtin.wait_for:
     port: "{{ bsd_redis_port }}"
-  when: bsd_redis_enable|bool
+  when: bsd_redis_enable | bool
 
 # EOF

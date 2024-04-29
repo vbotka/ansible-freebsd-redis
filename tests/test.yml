@@ -1,6 +1,7 @@
 ---
-- hosts: localhost
-  remote_user: root
+- name: Test
+  hosts: localhost
+  connection: local
   roles:
     - ansible-freebsd-redis
 
