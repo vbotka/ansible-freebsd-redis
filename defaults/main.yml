@@ -12,11 +12,14 @@ freebsd_use_packages: true
 freebsd_install_retries: 10
 freebsd_install_delay: 5
 
-# redis
-bsd_redis_service: redis
 bsd_redis_packages:
   - databases/redis
 bsd_redis_packages_extra: []
+
+bsd_redis_service: redis
+# Wait for the service before the role terminates.
+bsd_redis_wait: true
+
 # redis.conf
 bsd_redis_conf_path: /usr/local/etc
 bsd_redis_conf_file: "{{ bsd_redis_conf_path }}/redis.conf"

@@ -21,6 +21,7 @@
       bsd_redis_packages_extra:
         {{ bsd_redis_packages_extra | to_nice_yaml(indent=2) | indent(2) }}
       bsd_redis_enable {{ bsd_redis_enable }}
+      bsd_redis_wait {{ bsd_redis_wait }}
       bsd_redis_service {{ bsd_redis_service }}
       bsd_redis_conf_path {{ bsd_redis_conf_path }}
       bsd_redis_conf_file {{ bsd_redis_conf_file }}

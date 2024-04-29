@@ -20,6 +20,7 @@ Minor Changes
 -------------
 * Add changelog
 * Update README, list, meta, and travis
+* Add variable bsd_redis_wait (default=true)
 
 Bugfixes
 --------

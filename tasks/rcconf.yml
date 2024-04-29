@@ -17,12 +17,17 @@
   notify: disable and stop redis
   when: not bsd_redis_enable | bool
 
-- name: Meta flush_handlers
-  ansible.builtin.meta: flush_handlers
+- name: Flush handlers and wait for Redis
+  when:
+    - bsd_redis_enable | bool
+    - bsd_redis_wait | bool
+  block:
 
-- name: "Rcconf: Wait for Redis service at port {{ bsd_redis_port }}."
-  ansible.builtin.wait_for:
-    port: "{{ bsd_redis_port }}"
-  when: bsd_redis_enable | bool
+    - name: Meta flush_handlers
+      ansible.builtin.meta: flush_handlers
+
+    - name: "Rcconf: Wait for Redis service at port {{ bsd_redis_port }}."
+      ansible.builtin.wait_for:
+        port: "{{ bsd_redis_port }}"
 
 # EOF
