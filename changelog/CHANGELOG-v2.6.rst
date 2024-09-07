@@ -22,6 +22,7 @@ Minor Changes
 * Update lint config.
 * Add var bsd_redis_role_version
 * Update tasks/debug.yml
+* Renamed packages.yml to pkg.yml
 
 Bugfixes
 --------

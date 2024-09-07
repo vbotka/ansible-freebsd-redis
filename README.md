@@ -75,7 +75,7 @@ ansible_perl_interpreter=/usr/local/bin/perl
 * Install Redis
 
 ```bash
-shell> ansible-playbook redis.yml -t bsd_redis_packages
+shell> ansible-playbook redis.yml -t bsd_redis_pkg
 ```
 		
 * Check the playbook

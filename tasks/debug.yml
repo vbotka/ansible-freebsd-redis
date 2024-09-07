@@ -28,7 +28,6 @@
       bsd_redis_conf_file {{ bsd_redis_conf_file }}
       bsd_redis_bind_address {{ bsd_redis_bind_address }}
       bsd_redis_port {{ bsd_redis_port }}
-
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
 
