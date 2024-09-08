@@ -47,9 +47,6 @@ Install the collection if necessary
 shell> ansible-galaxy collection install community.general
 ```
 
-* Fit variables to your needs.
-
-
 * Create playbook and inventory
 
 ```bash
@@ -71,17 +68,30 @@ ansible_user=freebsd
 ansible_python_interpreter=/usr/local/bin/python3.9
 ansible_perl_interpreter=/usr/local/bin/perl
 ```
+		
+* Check syntax
+
+```bash
+shell> ansible-playbook redis.yml --syntax-check
+```
+
+* Fit variables to your needs.
+
+* Display variables
+
+```bash
+shell> ansible-playbook redis.yml -t bsd_redis_debug -e bsd_redis_debug=true
+```
 
 * Install Redis
 
 ```bash
-shell> ansible-playbook redis.yml -t bsd_redis_pkg
+shell> ansible-playbook redis.yml -t bsd_redis_pkg -e bsd_redis_install=true
 ```
 		
-* Check the playbook
+* Dry-run the play and display differences
 
 ```bash
-shell> ansible-playbook redis.yml --syntax-check
 shell> ansible-playbook redis.yml --check --diff
 ```
 
@@ -91,6 +101,13 @@ shell> ansible-playbook redis.yml --check --diff
 shell> ansible-playbook redis.yml
 ```
 
+## Troubleshooting
+
+See the log at the remote host
+
+```bash
+shell> tail -f /var/log/redis/redis.log
+```
 
 ## Ansible lint
 
