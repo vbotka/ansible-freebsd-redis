@@ -1,6 +1,8 @@
 # freebsd_redis
 
-[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/freebsd_redis)[![Build Status](https://app.travis-ci.com/vbotka/ansible-freebsd-redis.svg?branch=master)](https://ap.travis-ci.com/vbotka/ansible-freebsd-redis)[![GitHub tag](https://img.shields.io/github/v/tag/vbotka/ansible-freebsd-redis)](https://github.com/vbotka/ansible-freebsd-redis/tags)
+[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/freebsd_redis)
+[![Build Status](https://app.travis-ci.com/vbotka/ansible-freebsd-redis.svg?branch=master)](https://ap.travis-ci.com/vbotka/ansible-freebsd-redis)
+[![GitHub tag](https://img.shields.io/github/v/tag/vbotka/ansible-freebsd-redis)](https://github.com/vbotka/ansible-freebsd-redis/tags)
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/freebsd_redis/) FreeBSD. Install and configure Redis.
 
@@ -20,20 +22,20 @@ Feel free to [share your feedback and report issues](https://github.com/vbotka/a
 * community.general
 
 
-## Variables
+## Role Variables
 
 See defaults and examples in vars.
 
 
 ## Workflow
 
-1) Change shell on the remote host to /bin/sh if necessary
+* Change shell on the remote host to /bin/sh if necessary
 
 ```bash
 shell> ansible dbserver -e 'ansible_shell_type=csh ansible_shell_executable=/bin/csh' -a 'sudo pw usermod freebsd -s /bin/sh'
 ```
 
-2) Install the role and collections
+* Install the role and collections
 
 ```bash
 shell> ansible-galaxy role install vbotka.freebsd_redis
@@ -45,10 +47,7 @@ Install the collection if necessary
 shell> ansible-galaxy collection install community.general
 ```
 
-3) Fit variables
-
-
-4) Create playbook and inventory
+* Create playbook and inventory
 
 ```bash
 shell> cat redis.yml
@@ -69,26 +68,46 @@ ansible_user=freebsd
 ansible_python_interpreter=/usr/local/bin/python3.9
 ansible_perl_interpreter=/usr/local/bin/perl
 ```
-
-5) Install Redis
-
-```bash
-shell> ansible-playbook redis.yml -t bsd_redis_packages
-```
 		
-6) Check the playbook
+* Check syntax
 
 ```bash
 shell> ansible-playbook redis.yml --syntax-check
+```
+
+* Fit variables to your needs.
+
+* Display variables
+
+```bash
+shell> ansible-playbook redis.yml -t bsd_redis_debug -e bsd_redis_debug=true
+```
+
+* Install Redis
+
+```bash
+shell> ansible-playbook redis.yml -t bsd_redis_pkg -e bsd_redis_install=true
+```
+		
+* Dry-run the play and display differences
+
+```bash
 shell> ansible-playbook redis.yml --check --diff
 ```
 
-7) Configure Redis
+* Configure Redis
 
 ```bash
 shell> ansible-playbook redis.yml
 ```
 
+## Troubleshooting
+
+See the log at the remote host
+
+```bash
+shell> tail -f /var/log/redis/redis.log
+```
 
 ## Ansible lint
 

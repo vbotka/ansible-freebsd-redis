@@ -1,5 +1,6 @@
 ---
 # defaults freebsd_redis
+bsd_redis_role_version: 2.6.1
 
 bsd_redis_install: true
 bsd_redis_enable: false

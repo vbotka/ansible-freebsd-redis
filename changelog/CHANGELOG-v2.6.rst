@@ -5,6 +5,32 @@ vbotka.freebsd_bash 2.6 Release Notes
 .. contents:: Topics
 
 
+2.6.1
+=====
+
+Release Summary
+---------------
+Ansible 2.17 update
+
+Major Changes
+-------------
+* Supported FreeBSD: 13.3, 14.0, and 14.1
+
+Minor Changes
+-------------
+* Update README.
+* Update lint config.
+* Add var bsd_redis_role_version
+* Update tasks/debug.yml
+* Renamed packages.yml to pkg.yml
+
+Bugfixes
+--------
+
+Breaking Changes / Porting Guide
+--------------------------------
+
+
 2.6.0
 =====
 

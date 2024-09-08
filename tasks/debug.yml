@@ -2,6 +2,7 @@
 - name: "FreeBSD Redis Debug bsd_redis_debug={{ bsd_redis_debug }}"
   vars:
     msg: |-
+      bsd_redis_role_version: {{ bsd_redis_role_version }}
       ansible_architecture {{ ansible_architecture }}
       ansible_os_family {{ ansible_os_family }}
       ansible_distribution {{ ansible_distribution }}
@@ -27,7 +28,6 @@
       bsd_redis_conf_file {{ bsd_redis_conf_file }}
       bsd_redis_bind_address {{ bsd_redis_bind_address }}
       bsd_redis_port {{ bsd_redis_port }}
-
   ansible.builtin.debug:
     msg: "{{ '{}'.format(msg) }}"
 
